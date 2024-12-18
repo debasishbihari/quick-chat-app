@@ -5,6 +5,13 @@ const userRouter = require('./controllers/userController');
 const chatRouter = require('./controllers/chatController');
 const messageRouter = require('./controllers/messageController');
 
+// Configure CORS for API routes
+app.use(cors({
+    origin: 'https://quick-chat-app-two.vercel.app', // Your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+}));
+
 app.use(express.json({
     limit: "50mb"
 }));
