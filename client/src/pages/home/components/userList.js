@@ -138,8 +138,8 @@ const UsersList = ({ searchKey, socket,onlineUsers }) => {
     } else {
       allUsers.filter((user) => {
         return (
-          user.firstname.toLowerCase().includes(searchKey.toLowerCase()) ||
-          user.lastname.toLowerCase().includes(searchKey.toLowerCase())
+          user?.firstname.toLowerCase().includes(searchKey.toLowerCase()) ||
+          user?.lastname.toLowerCase().includes(searchKey.toLowerCase())
         );
       });
     }
