@@ -15,6 +15,20 @@ const io = require('socket.io')(server,{cors:{
     methods: ['GET', 'POST']
 }});
 
+// Add headers to all Socket.IO requests
+io.use((socket, next) => {
+    const origin = socket.handshake.headers.origin;
+
+    // Check if the origin matches your frontend URL (optional)
+    if (origin === 'https://quick-chat-app-two.vercel.app') {
+        socket.handshake.headers['Access-Control-Allow-Origin'] = 'https://quick-chat-app-two.vercel.app';
+        socket.handshake.headers['Access-Control-Allow-Methods'] = 'GET, POST';
+        socket.handshake.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization';
+    }
+    
+    next();
+});
+
 app.use('/api/auth',authRouter);
 app.use('/api/user',userRouter);
 app.use('/api/chat',chatRouter);
