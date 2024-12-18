@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const authRouter = require('./controllers/authController');
 const userRouter = require('./controllers/userController');
