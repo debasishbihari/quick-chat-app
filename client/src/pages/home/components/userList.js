@@ -122,7 +122,7 @@ const UsersList = ({ searchKey, socket,onlineUsers }) => {
     if (
       chat &&
       chat.unreadMessageCount &&
-      chat.lastMessage.sender !== currentUser._id
+      chat.lastMessage?.sender !== currentUser._id
     ) {
       return (
         <div className="unread-message-counter">{chat.unreadMessageCount}</div>
@@ -136,7 +136,7 @@ const UsersList = ({ searchKey, socket,onlineUsers }) => {
     if (searchKey === "") {
       return allChats;
     } else {
-      allUsers.filter((user) => {
+      return allUsers.filter((user) => {
         return (
           user.firstname.toLowerCase().includes(searchKey.toLowerCase()) ||
           user.lastname.toLowerCase().includes(searchKey.toLowerCase())
