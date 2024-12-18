@@ -145,7 +145,7 @@ const UsersList = ({ searchKey, socket,onlineUsers }) => {
     }
   };
 
-  return getData().map((obj) => {
+  return getData()?.map((obj) => {
     let user = obj;
     if (obj.members) {
       user = obj.members.find((m) => m._id !== currentUser._id);
