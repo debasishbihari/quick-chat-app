@@ -81,10 +81,11 @@ Replace the values with your actual credentials. You can obtain CONN_STRING by s
 creating a new database on the [MongoDB Cloud](https://www.mongodb.com/). Add a Port Number and secret key of your own.
 
 **Running the Project**
-
-```bash
 -For server
+```bash
 npm run dev
+```
 -For client
+```bash
 npm start
 ```
